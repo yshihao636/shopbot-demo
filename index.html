@@ -602,14 +602,15 @@ const NAV=[['总览',[['a01','监控仪表盘']]],['质量',[['a02','意图分�
 const hours=[120,80,50,35,30,42,90,210,420,610,720,760,690,640,700,730,680,620,580,640,700,560,380,210];
 
 const PAGES={
-a01:()=>ph('监控仪表盘','今天 · 每 1 分钟刷新')+`<div class="kpis">${kpi('自动解决率（灰度用户口径）','42.3%','▲ 2.1% 较昨日','up')}${kpi('转人工率','47.8%','▼ 1.5% 较昨日','up')}${kpi('用户满意度','3.9<small> /5.0</small>','▲ 0.2 较昨日','up')}${kpi('平均响应时间','2.1s','▼ 0.3s 较昨日','up')}</div>
+a01:()=>ph('监控仪表盘','今天 · 灰度组暂算演示值 · 每 1 分钟刷新')+`<div class="kpis">${kpi('自动解决率（灰度组）','38.2%','▲ 2.1% 较昨日','up')}${kpi('转人工率','47.8%','▼ 1.5% 较昨日','up')}${kpi('用户满意度','3.9<small> /5.0</small>','▲ 0.2 较昨日','up')}${kpi('平均首次响应时间','2.1s','▼ 0.3s 较昨日（演示）','up')}</div>
  <div class="grid2"><div class="panel"><h3>今日会话量 <span class="r">按小时 · 共 ${hours.reduce((a,b)=>a+b).toLocaleString()} 会话</span></h3>${vbars(hours,hours.map((_,i)=>i),' 会话')}</div>
  <div class="panel"><h3>意图分布</h3>${bars([['物流查询',28,'28%'],['退款退货',22,'22%'],['订单状态',18,'18%'],['商品咨询',15,'15%'],['其他',17,'17%']],30)}</div></div>
  <div class="panel"><h3>告警概览 <span class="r"><button class="link" data-go="a12">查看全部告警</button></span></h3><div class="list">
  ${[['p0','P0','高风险误操作率','= 0%，正常','good','正常'],['p1','P1','退款失败率升高','5.8%，阈值 5%','warn','处理中'],['p2','P2','工具调用失败','T11 优惠券系统超时率 1.2%','','已处理'],['p3','P3','转人工率上升','较昨日 +15%，未达 30% 阈值','','观察中']].map(a=>`<div class="li"><span class="sev ${a[0]}"></span><b>${a[1]}</b><span>${a[2]}</span><span class="x">${a[3]}<br>${st(a[5],a[4])}</span></div>`).join('')}</div></div>
  `,
 
-a02:()=>ph('意图分析','监控意图识别准确率、混淆对与标签生命周期')+`<div class="kpis">${kpi(`P0 意图识别准确率 ${st('达标','good')}`,'92.7%','目标 ≥ 90%')}${kpi(`L2 类目准确率 ${st('达标','good')}`,'96.1%','目标 ≥ 95%')}${kpi(`L3 细分准确率 ${st('未达标','bad')}`,'87.3%','目标 ≥ 90%')}</div>
+a02:()=>ph('意图分析','监控意图识别准确率、混淆对与标签生命周期')+`<div class="kpis">${kpi(`全 15 意图 P0 准确率 ${st('离线参考','info')}`,'92.7%','重复运行均值；非 v0.1 门槛结果')}${kpi(`L2 类目准确率 ${st('达标','good')}`,'96.1%','目标 ≥ 95%')}${kpi(`L3 细分准确率 ${st('未达标','bad')}`,'87.3%','目标 ≥ 90%')}</div>
+ <p class="hint">v0.1 适用的 6 个 P0 意图：均值 86.67%，未达 90%；首跑 104/120，组 bootstrap 95% 区间 80.3%–92.4%。全 15 意图首跑区间下限 90.1%，三次运行使用同一批样本。</p>
  <div class="panel"><h3>意图列表 <span class="r"><input class="search" id="intent-q" placeholder="搜索意图 ID 或名称"></span></h3><div id="intent-t">${intentTable('')}</div></div>
  <div class="grid2e"><div class="panel"><h3>混淆对 TOP3</h3><div class="list">${[['退货退款','仅退款','18.3%'],['物流异常','物流轨迹','12.1%'],['取消订单','退货退款','8.7%']].map(c=>`<div class="li"><span>${c[0]} ↔ ${c[1]}</span><b>${c[2]}</b><span class="x"><button class="btn" data-t="已生成合并评审单，待产品确认">合并建议</button> <button class="btn" data-t="已加入标注任务队列">增加训练</button></span></div>`).join('')}</div><p class="hint">混淆率 >20% 自动生成合并建议（模块 2.8）。</p></div>
  <div class="panel"><h3>标签管理</h3><div class="list"><div class="li">新增<span class="x">3 个待审核</span></div><div class="li">合并<span class="x">2 个待确认</span></div><div class="li">废弃<span class="x">1 个建议废弃（触发率连续 30 天 &lt;0.1%）</span></div></div></div></div>`,
@@ -682,8 +683,9 @@ a12:()=>ph('告警规则','规则、通知渠道与告警记录',`<button class=
 
 a13:()=>ph('灰度发布','Phase 0–4 放量、通过标准与回滚')+`<div class="panel"><h3>发布阶段</h3><div class="phase">${[['Phase 0','内部 30 人 · L0–L1'],['Phase 1','5% 用户 · 只读查询'],['Phase 2','20% 用户 · 申请类流程'],['Phase 3','50% 用户 · 低风险执行'],['Phase 4','100% · 受控高风险']].map((p,i)=>`<div class="${i<2?'done':i===2?'cur':''}"><b>${p[0]}</b>${p[1]}</div>`).join('')}</div></div>
  <div class="grid2"><div class="panel"><h3>Phase 2 详情 ${st('进行中','acc')}</h3><dl class="kv" style="max-width:420px">${[['范围','20% 线上用户'],['能力等级','L0–L2'],['人工抽检','20%'],['开始时间','2026-07-01'],['已运行','8 / 14 天']].map(r=>`<dt>${r[0]}</dt><dd>${r[1]}</dd>`).join('')}</dl>
-  <h3 style="font-size:14px;margin:16px 0 8px">通过标准 · 3/4 已满足</h3>${tbl(['指标','标准','当前','结果'],[['自动解决率（灰度组）','≥ 40%','38.2%',st('未达标','bad')],['CSAT','≥ 3.8','3.9',st('达标','good')],['P0 事故','= 0','0',st('达标','good')],['意图准确率','≥ 90%','92.7%',st('达标','good')]],[2])}
-  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><button class="btn" data-t="已回滚到 Phase 1，值班群已通知">回滚到 Phase 1</button><button class="btn" data-t="灰度已暂停">暂停灰度</button><button class="btn pri" disabled title="通过标准未全部满足，且就绪评分低于 90">推进到 Phase 3</button></div><p class="hint">推进按钮置灰：自动解决率未达标；就绪评分 88 &lt; 90。</p></div>
+  <h3 style="font-size:14px;margin:16px 0 8px">通过标准 · 证据待补齐</h3>${tbl(['指标','标准','当前','结果'],[['自动解决率（灰度组）','≥ 40%','38.2%',st('未达标','bad')],['CSAT','≥ 3.8','3.9',st('达标','good')],['P0 事故','= 0','0',st('达标','good')],['P0 意图准确率（全 15 意图）','≥ 90%','92.7%',st('离线点估计参考','info')]],[2])}
+  <p class="hint">运营示例值与 A01 同为今天灰度组的暂算口径，完整阶段观察期仍须验收。全 15 意图 v3 首跑区间下限 90.1%；v0.1 的 6 意图事后切片为 86.67%，未达 90% 参照线，不能用全集过线代替首版验收。</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><button class="btn" data-t="已回滚到 Phase 1，值班群已通知">回滚到 Phase 1</button><button class="btn" data-t="灰度已暂停">暂停灰度</button><button class="btn pri" disabled title="通过标准未全部满足，且就绪评分低于 90">推进到 Phase 3</button></div><p class="hint">推进按钮置灰：自动解决率未达标；就绪评分 88 &lt; 90。首版意图验收证据也未补齐。</p></div>
  <div class="panel"><h3>生产就绪评分 <span class="r">80–89：可以小流量灰度</span></h3><div class="kpi" style="padding:0 0 10px"><div class="v">88<small> /100</small></div></div>${bars([['场景边界',9,'9/10'],['意图识别',9,'9/10'],['实体抽取',9,'9/10'],['工具调用',9,'9/10'],['异常处理',8,'8/10'],['高风险控制',9.3,'14/15'],['人工兜底',9,'9/10'],['监控埋点',9,'9/10'],['测试覆盖',8,'8/10'],['话术合规',8,'4/5']],10)}</div></div>
  <div class="panel"><h3>上线检查清单</h3><div class="grid3" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">${[['产品侧',['P0 场景全部定义','高风险动作有确认','人工兜底路径','多渠道差异说明']],['技术侧',['超时/重试/错误码','执行类工具幂等','灰度/回滚开关','实时监控告警']],['风控侧',['风险等级定义','金额频率阈值','红队测试覆盖']],['合规侧',['最小化收集信息','敏感信息脱敏','隐私请求工单']]].map(g=>`<div><b>${g[0]}</b>${g[1].map(x=>`<div class="check"><i>✓</i>${x}</div>`).join('')}</div>`).join('')}</div></div>
  `,

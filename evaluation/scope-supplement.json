@@ -1,0 +1,713 @@
+{
+  "schema_version": "1.0",
+  "kind": "post_hoc_scope_supplement",
+  "source_summary_sha256_lf": "51d52566be56e680d0ff094fcb45fbc05febc56cb24df899a5104f95eeaf2156",
+  "source_summary_hash_method": "SHA-256 of UTF-8 text with LF line endings; independent of checkout CRLF conversion",
+  "dataset_sha256": "5369be6390785c28cd83d84c7a3d8978b1bd062c06254d594f4c90a2c6a2a815",
+  "v01_p0_intents": [
+    "I07",
+    "I12",
+    "I15",
+    "I16",
+    "I17",
+    "I36"
+  ],
+  "excluded_p0_intents": [
+    "I01",
+    "I02",
+    "I03",
+    "I04",
+    "I09",
+    "I10",
+    "I31",
+    "I32",
+    "I35"
+  ],
+  "samples_per_run": 120,
+  "unique_samples_across_repeated_runs": 120,
+  "repeated_runs_are_independent_samples": false,
+  "scope_limit": "Post-hoc intent classification slice, not a v0.1 execution acceptance test. I15 still requires order-state and version checks; handoff is not automatic resolution.",
+  "versions": {
+    "intent-v1": {
+      "runs": [
+        {
+          "run_id": "20261026-111014-qwen3.8-flash-v1-test",
+          "predictions_sha256": "471745b1f56d620ef217edcb298a0246cf168d6cce78ca51f6c3b6f21f52227b",
+          "metrics_sha256": "eb24415ab55933ed9756ed3911f7e93ddf0d32b826dd52d072861068b3af7e0b",
+          "full_p0": {
+            "n": 300,
+            "correct": 263,
+            "accuracy": 0.8766666666666667,
+            "bootstrap_95": {
+              "low": 0.8401360544217688,
+              "high": 0.9105960264900662,
+              "iterations": 10000,
+              "seed": 20261026,
+              "method": "按意图分层、意图内以 group_id 为单位有放回重采样"
+            }
+          },
+          "v01_p0": {
+            "n": 120,
+            "correct": 95,
+            "accuracy": 0.7916666666666666,
+            "group_count": 98,
+            "bootstrap_95": {
+              "low": 0.7192982456140351,
+              "high": 0.8583333333333333,
+              "iterations": 10000,
+              "seed": 20261026,
+              "method": "按意图分层、意图内以 group_id 为单位有放回重采样"
+            },
+            "by_source": {
+              "csds": {
+                "n": 68,
+                "correct": 49,
+                "accuracy": 0.7205882352941176
+              },
+              "synthetic": {
+                "n": 52,
+                "correct": 46,
+                "accuracy": 0.8846153846153846
+              }
+            },
+            "per_intent": {
+              "I07": {
+                "n": 20,
+                "correct": 10,
+                "accuracy": 0.5
+              },
+              "I12": {
+                "n": 20,
+                "correct": 15,
+                "accuracy": 0.75
+              },
+              "I15": {
+                "n": 20,
+                "correct": 20,
+                "accuracy": 1.0
+              },
+              "I16": {
+                "n": 20,
+                "correct": 15,
+                "accuracy": 0.75
+              },
+              "I17": {
+                "n": 20,
+                "correct": 19,
+                "accuracy": 0.95
+              },
+              "I36": {
+                "n": 20,
+                "correct": 16,
+                "accuracy": 0.8
+              }
+            }
+          }
+        },
+        {
+          "run_id": "20261026-233453-qwen3.8-flash-v1-test",
+          "predictions_sha256": "8d8e5e252cafbf718d2eb5733da15b6e18c64dc2c71bf58eb477475572de056a",
+          "metrics_sha256": "a66edbd64333f84234067d1afda3d7dd7a88765591de2da6826cec52baaa565f",
+          "full_p0": {
+            "n": 300,
+            "correct": 260,
+            "accuracy": 0.8666666666666667,
+            "bootstrap_95": {
+              "low": 0.83,
+              "high": 0.9016393442622951,
+              "iterations": 10000,
+              "seed": 20261026,
+              "method": "按意图分层、意图内以 group_id 为单位有放回重采样"
+            }
+          },
+          "v01_p0": {
+            "n": 120,
+            "correct": 94,
+            "accuracy": 0.7833333333333333,
+            "group_count": 98,
+            "bootstrap_95": {
+              "low": 0.7079646017699115,
+              "high": 0.8524590163934426,
+              "iterations": 10000,
+              "seed": 20261026,
+              "method": "按意图分层、意图内以 group_id 为单位有放回重采样"
+            },
+            "by_source": {
+              "csds": {
+                "n": 68,
+                "correct": 48,
+                "accuracy": 0.7058823529411765
+              },
+              "synthetic": {
+                "n": 52,
+                "correct": 46,
+                "accuracy": 0.8846153846153846
+              }
+            },
+            "per_intent": {
+              "I07": {
+                "n": 20,
+                "correct": 10,
+                "accuracy": 0.5
+              },
+              "I12": {
+                "n": 20,
+                "correct": 16,
+                "accuracy": 0.8
+              },
+              "I15": {
+                "n": 20,
+                "correct": 20,
+                "accuracy": 1.0
+              },
+              "I16": {
+                "n": 20,
+                "correct": 14,
+                "accuracy": 0.7
+              },
+              "I17": {
+                "n": 20,
+                "correct": 18,
+                "accuracy": 0.9
+              },
+              "I36": {
+                "n": 20,
+                "correct": 16,
+                "accuracy": 0.8
+              }
+            }
+          }
+        },
+        {
+          "run_id": "20261026-233813-qwen3.8-flash-v1-test",
+          "predictions_sha256": "bf52a89de6a4451366563bd0b4d3181edc43f306ee1710f8be1ddd7a1422a436",
+          "metrics_sha256": "2508d67e90ec8edac01f945b10fa606638637c87dae76dc153ccaff3b1ed0306",
+          "full_p0": {
+            "n": 300,
+            "correct": 255,
+            "accuracy": 0.85,
+            "bootstrap_95": {
+              "low": 0.8127038043478261,
+              "high": 0.8870431893687708,
+              "iterations": 10000,
+              "seed": 20261026,
+              "method": "按意图分层、意图内以 group_id 为单位有放回重采样"
+            }
+          },
+          "v01_p0": {
+            "n": 120,
+            "correct": 90,
+            "accuracy": 0.75,
+            "group_count": 98,
+            "bootstrap_95": {
+              "low": 0.6774193548387096,
+              "high": 0.819672131147541,
+              "iterations": 10000,
+              "seed": 20261026,
+              "method": "按意图分层、意图内以 group_id 为单位有放回重采样"
+            },
+            "by_source": {
+              "csds": {
+                "n": 68,
+                "correct": 47,
+                "accuracy": 0.6911764705882353
+              },
+              "synthetic": {
+                "n": 52,
+                "correct": 43,
+                "accuracy": 0.8269230769230769
+              }
+            },
+            "per_intent": {
+              "I07": {
+                "n": 20,
+                "correct": 8,
+                "accuracy": 0.4
+              },
+              "I12": {
+                "n": 20,
+                "correct": 16,
+                "accuracy": 0.8
+              },
+              "I15": {
+                "n": 20,
+                "correct": 20,
+                "accuracy": 1.0
+              },
+              "I16": {
+                "n": 20,
+                "correct": 11,
+                "accuracy": 0.55
+              },
+              "I17": {
+                "n": 20,
+                "correct": 18,
+                "accuracy": 0.9
+              },
+              "I36": {
+                "n": 20,
+                "correct": 17,
+                "accuracy": 0.85
+              }
+            }
+          }
+        }
+      ],
+      "v01_mean_accuracy": 0.775
+    },
+    "intent-v2": {
+      "runs": [
+        {
+          "run_id": "20261026-111154-qwen3.8-flash-v2-test",
+          "predictions_sha256": "11247d4c664af8d89d54e24053ad6dc7466474000c44ff0f24f725995b5508af",
+          "metrics_sha256": "9e27de97930dc4c5d3d5f11076956995b573145746ea08260d9bc1c2b0530eb7",
+          "full_p0": {
+            "n": 300,
+            "correct": 278,
+            "accuracy": 0.9266666666666666,
+            "bootstrap_95": {
+              "low": 0.8973509933774835,
+              "high": 0.9534883720930233,
+              "iterations": 10000,
+              "seed": 20261026,
+              "method": "按意图分层、意图内以 group_id 为单位有放回重采样"
+            }
+          },
+          "v01_p0": {
+            "n": 120,
+            "correct": 103,
+            "accuracy": 0.8583333333333333,
+            "group_count": 98,
+            "bootstrap_95": {
+              "low": 0.7931034482758621,
+              "high": 0.9173553719008265,
+              "iterations": 10000,
+              "seed": 20261026,
+              "method": "按意图分层、意图内以 group_id 为单位有放回重采样"
+            },
+            "by_source": {
+              "csds": {
+                "n": 68,
+                "correct": 53,
+                "accuracy": 0.7794117647058824
+              },
+              "synthetic": {
+                "n": 52,
+                "correct": 50,
+                "accuracy": 0.9615384615384616
+              }
+            },
+            "per_intent": {
+              "I07": {
+                "n": 20,
+                "correct": 15,
+                "accuracy": 0.75
+              },
+              "I12": {
+                "n": 20,
+                "correct": 16,
+                "accuracy": 0.8
+              },
+              "I15": {
+                "n": 20,
+                "correct": 20,
+                "accuracy": 1.0
+              },
+              "I16": {
+                "n": 20,
+                "correct": 17,
+                "accuracy": 0.85
+              },
+              "I17": {
+                "n": 20,
+                "correct": 18,
+                "accuracy": 0.9
+              },
+              "I36": {
+                "n": 20,
+                "correct": 17,
+                "accuracy": 0.85
+              }
+            }
+          }
+        },
+        {
+          "run_id": "20261026-234135-qwen3.8-flash-v2-test",
+          "predictions_sha256": "134001906b3ecef04f4a2410dfc87d2419f530c29206c3f2233e1ddb8d1d4cc2",
+          "metrics_sha256": "4696ba8ea70674c53a5b61d25062e15f02563eef1069b21eff4585dd21ca94d3",
+          "full_p0": {
+            "n": 300,
+            "correct": 276,
+            "accuracy": 0.92,
+            "bootstrap_95": {
+              "low": 0.8896551724137931,
+              "high": 0.9477388802505986,
+              "iterations": 10000,
+              "seed": 20261026,
+              "method": "按意图分层、意图内以 group_id 为单位有放回重采样"
+            }
+          },
+          "v01_p0": {
+            "n": 120,
+            "correct": 103,
+            "accuracy": 0.8583333333333333,
+            "group_count": 98,
+            "bootstrap_95": {
+              "low": 0.7931034482758621,
+              "high": 0.9173553719008265,
+              "iterations": 10000,
+              "seed": 20261026,
+              "method": "按意图分层、意图内以 group_id 为单位有放回重采样"
+            },
+            "by_source": {
+              "csds": {
+                "n": 68,
+                "correct": 53,
+                "accuracy": 0.7794117647058824
+              },
+              "synthetic": {
+                "n": 52,
+                "correct": 50,
+                "accuracy": 0.9615384615384616
+              }
+            },
+            "per_intent": {
+              "I07": {
+                "n": 20,
+                "correct": 15,
+                "accuracy": 0.75
+              },
+              "I12": {
+                "n": 20,
+                "correct": 16,
+                "accuracy": 0.8
+              },
+              "I15": {
+                "n": 20,
+                "correct": 20,
+                "accuracy": 1.0
+              },
+              "I16": {
+                "n": 20,
+                "correct": 17,
+                "accuracy": 0.85
+              },
+              "I17": {
+                "n": 20,
+                "correct": 18,
+                "accuracy": 0.9
+              },
+              "I36": {
+                "n": 20,
+                "correct": 17,
+                "accuracy": 0.85
+              }
+            }
+          }
+        },
+        {
+          "run_id": "20261026-234418-qwen3.8-flash-v2-test",
+          "predictions_sha256": "306613b0b1a716989cdfc57343209a60bbb035ca8c4216104d4d409b67fc3ebf",
+          "metrics_sha256": "ce38c45a95a643c6977f4f4e86145c4d91201c286fd3a74d0bb94a8ef6786ca2",
+          "full_p0": {
+            "n": 300,
+            "correct": 275,
+            "accuracy": 0.9166666666666666,
+            "bootstrap_95": {
+              "low": 0.8855218855218855,
+              "high": 0.9459459459459459,
+              "iterations": 10000,
+              "seed": 20261026,
+              "method": "按意图分层、意图内以 group_id 为单位有放回重采样"
+            }
+          },
+          "v01_p0": {
+            "n": 120,
+            "correct": 104,
+            "accuracy": 0.8666666666666667,
+            "group_count": 98,
+            "bootstrap_95": {
+              "low": 0.8018018018018018,
+              "high": 0.9237416538263994,
+              "iterations": 10000,
+              "seed": 20261026,
+              "method": "按意图分层、意图内以 group_id 为单位有放回重采样"
+            },
+            "by_source": {
+              "csds": {
+                "n": 68,
+                "correct": 54,
+                "accuracy": 0.7941176470588235
+              },
+              "synthetic": {
+                "n": 52,
+                "correct": 50,
+                "accuracy": 0.9615384615384616
+              }
+            },
+            "per_intent": {
+              "I07": {
+                "n": 20,
+                "correct": 15,
+                "accuracy": 0.75
+              },
+              "I12": {
+                "n": 20,
+                "correct": 16,
+                "accuracy": 0.8
+              },
+              "I15": {
+                "n": 20,
+                "correct": 20,
+                "accuracy": 1.0
+              },
+              "I16": {
+                "n": 20,
+                "correct": 18,
+                "accuracy": 0.9
+              },
+              "I17": {
+                "n": 20,
+                "correct": 18,
+                "accuracy": 0.9
+              },
+              "I36": {
+                "n": 20,
+                "correct": 17,
+                "accuracy": 0.85
+              }
+            }
+          }
+        }
+      ],
+      "v01_mean_accuracy": 0.861111111111111
+    },
+    "intent-v3": {
+      "runs": [
+        {
+          "run_id": "20261026-233108-qwen3.8-flash-v3-test",
+          "predictions_sha256": "fbd11893484d8489e372fc1da81088bccd3ef86606e69d77e2c71c9a5e5651d0",
+          "metrics_sha256": "7f818b133b6db6e27cfb12149c5cff45afbb8eb90ef3ce9d5ea18fa765cc674f",
+          "full_p0": {
+            "n": 300,
+            "correct": 279,
+            "accuracy": 0.93,
+            "bootstrap_95": {
+              "low": 0.9010238907849829,
+              "high": 0.956379486431281,
+              "iterations": 10000,
+              "seed": 20261026,
+              "method": "按意图分层、意图内以 group_id 为单位有放回重采样"
+            }
+          },
+          "v01_p0": {
+            "n": 120,
+            "correct": 104,
+            "accuracy": 0.8666666666666667,
+            "group_count": 98,
+            "bootstrap_95": {
+              "low": 0.8034153005464482,
+              "high": 0.9243697478991597,
+              "iterations": 10000,
+              "seed": 20261026,
+              "method": "按意图分层、意图内以 group_id 为单位有放回重采样"
+            },
+            "by_source": {
+              "csds": {
+                "n": 68,
+                "correct": 53,
+                "accuracy": 0.7794117647058824
+              },
+              "synthetic": {
+                "n": 52,
+                "correct": 51,
+                "accuracy": 0.9807692307692307
+              }
+            },
+            "per_intent": {
+              "I07": {
+                "n": 20,
+                "correct": 15,
+                "accuracy": 0.75
+              },
+              "I12": {
+                "n": 20,
+                "correct": 16,
+                "accuracy": 0.8
+              },
+              "I15": {
+                "n": 20,
+                "correct": 20,
+                "accuracy": 1.0
+              },
+              "I16": {
+                "n": 20,
+                "correct": 17,
+                "accuracy": 0.85
+              },
+              "I17": {
+                "n": 20,
+                "correct": 18,
+                "accuracy": 0.9
+              },
+              "I36": {
+                "n": 20,
+                "correct": 18,
+                "accuracy": 0.9
+              }
+            }
+          }
+        },
+        {
+          "run_id": "20261026-234725-qwen3.8-flash-v3-test",
+          "predictions_sha256": "c3902eece14b74ed2e267281324a7f070483763b0547815c6d67934e0a888bdc",
+          "metrics_sha256": "5fbfeb4ece041c80d1057cdb9c11d64f5267639059b15da939c8a6bf78a1a3d9",
+          "full_p0": {
+            "n": 300,
+            "correct": 277,
+            "accuracy": 0.9233333333333333,
+            "bootstrap_95": {
+              "low": 0.8933333333333333,
+              "high": 0.9506578947368421,
+              "iterations": 10000,
+              "seed": 20261026,
+              "method": "按意图分层、意图内以 group_id 为单位有放回重采样"
+            }
+          },
+          "v01_p0": {
+            "n": 120,
+            "correct": 103,
+            "accuracy": 0.8583333333333333,
+            "group_count": 98,
+            "bootstrap_95": {
+              "low": 0.7931034482758621,
+              "high": 0.9173553719008265,
+              "iterations": 10000,
+              "seed": 20261026,
+              "method": "按意图分层、意图内以 group_id 为单位有放回重采样"
+            },
+            "by_source": {
+              "csds": {
+                "n": 68,
+                "correct": 52,
+                "accuracy": 0.7647058823529411
+              },
+              "synthetic": {
+                "n": 52,
+                "correct": 51,
+                "accuracy": 0.9807692307692307
+              }
+            },
+            "per_intent": {
+              "I07": {
+                "n": 20,
+                "correct": 15,
+                "accuracy": 0.75
+              },
+              "I12": {
+                "n": 20,
+                "correct": 16,
+                "accuracy": 0.8
+              },
+              "I15": {
+                "n": 20,
+                "correct": 19,
+                "accuracy": 0.95
+              },
+              "I16": {
+                "n": 20,
+                "correct": 17,
+                "accuracy": 0.85
+              },
+              "I17": {
+                "n": 20,
+                "correct": 18,
+                "accuracy": 0.9
+              },
+              "I36": {
+                "n": 20,
+                "correct": 18,
+                "accuracy": 0.9
+              }
+            }
+          }
+        },
+        {
+          "run_id": "20261026-235042-qwen3.8-flash-v3-test",
+          "predictions_sha256": "04015efd678535e698c12feb9db7f1ab1bc1b80c588bd2ad40cc7698f31df2f5",
+          "metrics_sha256": "aa2bb90b910edf2623f6c61eb9d03d56ba5e42f91ca899cce111b24e48951737",
+          "full_p0": {
+            "n": 300,
+            "correct": 278,
+            "accuracy": 0.9266666666666666,
+            "bootstrap_95": {
+              "low": 0.8969072164948454,
+              "high": 0.9534883720930233,
+              "iterations": 10000,
+              "seed": 20261026,
+              "method": "按意图分层、意图内以 group_id 为单位有放回重采样"
+            }
+          },
+          "v01_p0": {
+            "n": 120,
+            "correct": 105,
+            "accuracy": 0.875,
+            "group_count": 98,
+            "bootstrap_95": {
+              "low": 0.8135593220338984,
+              "high": 0.9302376137512638,
+              "iterations": 10000,
+              "seed": 20261026,
+              "method": "按意图分层、意图内以 group_id 为单位有放回重采样"
+            },
+            "by_source": {
+              "csds": {
+                "n": 68,
+                "correct": 54,
+                "accuracy": 0.7941176470588235
+              },
+              "synthetic": {
+                "n": 52,
+                "correct": 51,
+                "accuracy": 0.9807692307692307
+              }
+            },
+            "per_intent": {
+              "I07": {
+                "n": 20,
+                "correct": 15,
+                "accuracy": 0.75
+              },
+              "I12": {
+                "n": 20,
+                "correct": 16,
+                "accuracy": 0.8
+              },
+              "I15": {
+                "n": 20,
+                "correct": 20,
+                "accuracy": 1.0
+              },
+              "I16": {
+                "n": 20,
+                "correct": 17,
+                "accuracy": 0.85
+              },
+              "I17": {
+                "n": 20,
+                "correct": 19,
+                "accuracy": 0.95
+              },
+              "I36": {
+                "n": 20,
+                "correct": 18,
+                "accuracy": 0.9
+              }
+            }
+          }
+        }
+      ],
+      "v01_mean_accuracy": 0.8666666666666667
+    }
+  }
+}

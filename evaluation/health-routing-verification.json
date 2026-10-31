@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "kind": "deterministic_health_routing_verification",
+  "runtime_version": "health-handoff-v1",
+  "runtime_sha256": {
+    "agent.py": "4aaafe195b02beacd32351a3405ffe577cb3add4c18dff5431b7769c79d78ad5",
+    "agent_backend.py": "cd8808b82ceb4c5a91b3c4be7330334c90936d99f3fcaf93be9177489a0fbb90"
+  },
+  "dataset_sha256": "ad492450fee09717478d80bc3ef6800a505b813bba4b2374ee1370d166f9d177",
+  "prompt_sha256": "1e98d09a5dbf65f96f75072f660d99f4f3e29329f19226732a219940158edf68",
+  "unique_tasks": 2,
+  "confirmation_modes": 2,
+  "checks": [
+    {
+      "task_id": "e2e-escalate-01",
+      "confirm_mode": "model_submit",
+      "passed": true,
+      "check_count": 3,
+      "model_calls": 0,
+      "successful_handoffs": 1,
+      "writes": 0,
+      "model_cost_yuan": 0.0
+    },
+    {
+      "task_id": "e2e-escalate-01",
+      "confirm_mode": "backend_submit",
+      "passed": true,
+      "check_count": 3,
+      "model_calls": 0,
+      "successful_handoffs": 1,
+      "writes": 0,
+      "model_cost_yuan": 0.0
+    },
+    {
+      "task_id": "e2e-escalate-02",
+      "confirm_mode": "model_submit",
+      "passed": true,
+      "check_count": 3,
+      "model_calls": 0,
+      "successful_handoffs": 1,
+      "writes": 0,
+      "model_cost_yuan": 0.0
+    },
+    {
+      "task_id": "e2e-escalate-02",
+      "confirm_mode": "backend_submit",
+      "passed": true,
+      "check_count": 3,
+      "model_calls": 0,
+      "successful_handoffs": 1,
+      "writes": 0,
+      "model_cost_yuan": 0.0
+    }
+  ],
+  "scope_limit": "Two known health tasks with a model that raises if called; simulated backend. Not a full model rerun, independent holdout, production integration or semantic recall test.",
+  "reproduce": "python -m src.verify_health_routing --output <new-json-path>"
+}
